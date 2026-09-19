@@ -131,3 +131,45 @@ Random Forest Training
 Evaluation
 ↓
 Prediction
+
+---
+
+# 6. Prompt 5 – Penyusunan User Story, Use Case, User Flow, dan Acceptance Criteria
+
+### Prompt
+
+> Berdasarkan dokumen SRS sistem Prediksi Kategori Hasil Belajar Siswa Menggunakan Algoritma Random Forest Berbasis Web, ubah Functional Requirement menjadi User Story, Use Case, User Flow, Acceptance Criteria dengan format Given-When-Then, serta Traceability Matrix.
+
+### Tujuan
+
+Menyusun dokumen kebutuhan sistem berdasarkan hasil analisis SRS.
+
+### Hasil
+
+AI membantu menghasilkan:
+- daftar Functional Requirement;
+- User Story berdasarkan sudut pandang pengguna;
+- Use Case sistem;
+- alur pengguna (User Flow);
+- Acceptance Criteria;
+- Traceability Matrix.
+
+### Koreksi Manual
+
+Perbaikan yang dilakukan:
+- Menyesuaikan aktor sistem menjadi admin sistem dan guru.
+- Memastikan fitur Random Forest dikategorikan sebagai fitur AI.
+- Menyesuaikan kebutuhan sistem berdasarkan dokumen SRS.
+- Menghapus fitur yang tidak sesuai dengan ruang lingkup penelitian.
+
+---
+
+# 7. Evaluasi Penggunaan AI
+
+AI digunakan sebagai alat bantu dalam proses analisis dan dokumentasi kebutuhan sistem.
+
+Hasil dari AI kemudian diperiksa dan disesuaikan kembali agar sesuai dengan:
+- tujuan penelitian;
+- ruang lingkup sistem;
+- kebutuhan perangkat lunak;
+- rancangan fitur aplikasi.
