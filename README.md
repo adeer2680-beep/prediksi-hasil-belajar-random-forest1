@@ -8,6 +8,14 @@ Sistem menerima data yang berkaitan dengan hasil belajar siswa, kemudian melakuk
 
 Aplikasi dikembangkan dalam bentuk web sehingga dapat diakses dengan lebih mudah oleh pengguna.
 
+## Dokumen
+
+Dokumen perancangan sistem:
+
+- hld.md : High-Level Design sistem
+- lld-awal.md : Low-Level Design awal sistem
+- prompt-log.md : Dokumentasi penggunaan prompt AI dalam proses perancangan
+
 ## Latar Belakang
 
 Hasil belajar siswa merupakan salah satu indikator yang dapat digunakan untuk mengetahui tingkat pencapaian siswa dalam proses pembelajaran. Dalam praktiknya, proses identifikasi dan pengelompokan hasil belajar siswa masih dapat dilakukan secara manual berdasarkan nilai yang diperoleh.
@@ -63,7 +71,7 @@ Alur proses secara umum:
 
 ## Input Sistem
 
-Data yang digunakan dapat meliputi beberapa atribut yang relevan terhadap hasil belajar siswa, seperti:
+Data yang digunakan meliputi beberapa atribut yang relevan terhadap hasil belajar siswa, seperti:
 
 - Nilai tugas
 - Nilai ujian
@@ -87,18 +95,24 @@ Kategori tersebut dapat disesuaikan berdasarkan dataset dan rancangan penelitian
 
 ## Teknologi
 
-Teknologi yang dapat digunakan dalam pengembangan sistem:
+Teknologi yang digunakan dalam pengembangan sistem:
 
-- HTML
-- CSS
-- JavaScript
-- PHP
-- Laravel
-- Python
-- Scikit-learn
-- MySQL
+- Frontend:
+  - HTML
+  - CSS
+  - JavaScript
 
-Teknologi dapat disesuaikan kembali berdasarkan implementasi sistem.
+- Backend:
+  - Python
+  - Flask
+
+- Machine Learning:
+  - Python
+  - Scikit-learn
+  - Random Forest Classifier
+
+- Database:
+  - MySQL
 
 ## Struktur Repository
 
@@ -108,7 +122,16 @@ prediksi-hasil-belajar-random-forest/
 ├── README.md
 ├── prd.md
 ├── srs.md
-├── prompt-log.md
+│
+├── docs/
+│   ├── requirements/
+│   │   ├── prompt-log.md
+│   │   └── user-stories.md
+│   │
+│   └── design/
+│       ├── hld.md
+│       ├── lld-awal.md
+│       └── prompt-log.md
 │
 ├── dataset/
 │   └── dataset-siswa.csv
@@ -117,5 +140,11 @@ prediksi-hasil-belajar-random-forest/
 │   └── random-forest-model.pkl
 │
 ├── backend/
+│   ├── app.py
+│   ├── routes/
+│   └── models/
 │
 └── frontend/
+    ├── index.html
+    ├── css/
+    └── js/
