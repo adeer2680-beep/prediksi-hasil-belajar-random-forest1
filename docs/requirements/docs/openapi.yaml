@@ -1,0 +1,320 @@
+openapi: 3.0.3
+
+info:
+  title: Sistem Prediksi Kategori Hasil Belajar Siswa API
+  description: REST API untuk sistem prediksi kategori hasil belajar siswa menggunakan algoritma Random Forest.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5000/api
+
+
+tags:
+  - name: Authentication
+    description: Endpoint autentikasi pengguna
+
+  - name: Students
+    description: Pengelolaan data siswa
+
+  - name: Dataset
+    description: Pengelolaan dataset dan preprocessing
+
+  - name: Models
+    description: Training dan evaluasi model Random Forest
+
+  - name: Predictions
+    description: Proses prediksi dan riwayat prediksi
+
+
+paths:
+
+  /auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: Login pengguna
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+
+      responses:
+        '200':
+          description: Login berhasil
+
+        '401':
+          description: Email atau password salah
+
+
+
+  /students:
+
+    get:
+      tags:
+        - Students
+      summary: Mendapatkan seluruh data siswa
+
+      responses:
+        '200':
+          description: Data siswa berhasil diambil
+
+
+    post:
+      tags:
+        - Students
+      summary: Menambahkan data siswa
+
+      responses:
+        '201':
+          description: Data siswa berhasil dibuat
+
+
+
+  /students/{id}:
+
+    get:
+      tags:
+        - Students
+      summary: Mendapatkan detail siswa
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Detail siswa berhasil diambil
+
+        '404':
+          description: Data siswa tidak ditemukan
+
+
+    put:
+      tags:
+        - Students
+      summary: Mengubah data siswa
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Data siswa berhasil diperbarui
+
+
+    delete:
+      tags:
+        - Students
+      summary: Menghapus data siswa
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Data siswa berhasil dihapus
+
+
+
+  /datasets/upload:
+
+    post:
+      tags:
+        - Dataset
+      summary: Upload dataset siswa
+
+      responses:
+        '201':
+          description: Dataset berhasil diupload
+
+
+
+  /datasets:
+
+    get:
+      tags:
+        - Dataset
+      summary: Mendapatkan daftar dataset
+
+      responses:
+        '200':
+          description: Data dataset berhasil diambil
+
+
+
+  /preprocessing:
+
+    post:
+      tags:
+        - Dataset
+      summary: Melakukan preprocessing dataset
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dataset_id:
+                  type: integer
+
+
+      responses:
+        '200':
+          description: Preprocessing berhasil
+
+
+
+  /models/train:
+
+    post:
+      tags:
+        - Models
+      summary: Training model Random Forest
+
+      responses:
+        '200':
+          description: Training model berhasil
+
+
+
+  /models/{id}/evaluation:
+
+    get:
+      tags:
+        - Models
+      summary: Melihat evaluasi model
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+
+      responses:
+        '200':
+          description: Evaluasi model berhasil diambil
+
+
+
+  /predictions:
+
+    post:
+      tags:
+        - Predictions
+      summary: Melakukan prediksi kategori hasil belajar siswa
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+
+                student_id:
+                  type: integer
+
+                model_id:
+                  type: integer
+
+
+      responses:
+
+        '200':
+          description: Prediksi berhasil dilakukan
+
+          content:
+            application/json:
+              example:
+                category: Tinggi
+                probability: 0.87
+
+
+
+    get:
+      tags:
+        - Predictions
+      summary: Melihat riwayat prediksi
+
+      responses:
+        '200':
+          description: Data prediksi berhasil diambil
+
+
+
+components:
+
+  schemas:
+
+    Student:
+
+      type: object
+
+      properties:
+
+        id:
+          type: integer
+
+        nis:
+          type: string
+
+        name:
+          type: string
+
+        attendance:
+          type: number
+
+        assignment_score:
+          type: number
+
+        exam_score:
+          type: number
+
+        learning_activity:
+          type: number
+
+
+
+    Prediction:
+
+      type: object
+
+      properties:
+
+        id:
+          type: integer
+
+        student_id:
+          type: integer
+
+        model_id:
+          type: integer
+
+        category:
+          type: string
+
+        probability:
+          type: number

@@ -12,9 +12,17 @@ Aplikasi dikembangkan dalam bentuk web sehingga dapat diakses dengan lebih mudah
 
 Dokumen perancangan sistem:
 
+- prd.md : Product Requirement Document
+- srs.md : Software Requirements Specification
+- user-stories.md : User Story dan kebutuhan pengguna
 - hld.md : High-Level Design sistem
 - lld-awal.md : Low-Level Design awal sistem
-- prompt-log.md : Dokumentasi penggunaan prompt AI dalam proses perancangan
+- prompt-log.md : Dokumentasi penggunaan prompt AI tahap analisis
+- erd.md : Rancangan Entity Relationship Diagram
+- models.py : Struktur data sistem
+- api-contract.md : Dokumentasi kontrak API
+- openapi.yaml : Spesifikasi REST API
+- ptm-05-prompt-log.md : Dokumentasi penggunaan AI tahap desain API
 
 ## Latar Belakang
 
